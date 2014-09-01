@@ -543,7 +543,7 @@ class ZnWP_Bootstrap_Theme
         return sprintf(
             '<div class="link-block read-more">
                <a href="%s">%s <span class="glyphicon glyphicon-chevron-right"></span></a>
-             </div>',
+             </div><div class="clearfix"></div>',
             get_permalink(get_the_ID()),
             'Continue reading'
         );
