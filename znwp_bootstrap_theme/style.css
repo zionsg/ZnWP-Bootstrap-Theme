@@ -1,0 +1,79 @@
+/*
+Theme Name: ZnWP Bootstrap Theme
+Theme URI: https://github.com/zionsg/ZnWP-Bootstrap-Theme
+Author: Zion Ng
+Author URI: https://github.com/zionsg/ZnWP-Bootstrap-Theme
+Description: A no-frills theme using Twitter Bootstrap 3 for responsive layout and the Theme Customizer for settings.
+Version: 1.0.0
+License: BSD 2-clause
+License URI: http://choosealicense.com/licenses/bsd-2-clause/
+Tags: two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-header, custom-menu
+Text Domain: znwp_bootstrap_theme
+*/
+
+/* Login Form Logo - customize dimensions in child theme accordingly */
+body.login div#login h1 a {
+  background-size: 150px 150px;
+  height: 150px;
+  width: 150px;
+}
+
+/* Header and Footer */
+#header-text,
+#footer-text {
+  text-align: center;
+}
+#header-text .tagline { font-style: italic; }
+
+/* Navigation */
+.navbar-default { border-radius: 0; }
+.navbar .nav>li>a:hover,
+.navbar .nav>li.active>a:hover {
+  background-color: #428bca;
+  color: white;
+}
+
+/* Main and Sidebar */
+main h1.page-title {
+  font-size: 200%;
+  font-weight: bold;
+}
+main h1.post-title,
+#sidebar h1.widget-title {
+  font-size: 150%;
+}
+
+hr.title-divider {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+main img { /* ensure images in blog are responsive without need to add classes */
+  height: auto;
+  max-width: 100%;
+}
+
+#sidebar .widget-title { border-bottom: 1px solid #eee; }
+#sidebar ul {
+  list-style-type: none;
+  padding: 0 20px;
+}
+
+/* Enclose link in a block with borders */
+.link-block a {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px;
+  text-decoration: none;
+}
+.link-block a:hover {
+  background-color: #428bca;
+  color: white;
+}
+.link-block.read-more { text-align: right; }
+.link-block.post-prev { float: left; }
+.link-block.post-next { float: right; }
+.link-block.post-prev a,
+.link-block.post-next a {
+  display: block;
+}
