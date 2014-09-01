@@ -11,4 +11,4 @@ Steps
   - Activate the theme
 
 ### Usage
-Once activated, the theme can be customized via Appearance > Customize admin screen.
+Once activated, the theme can be customized via the Appearance > Customize admin screen.
