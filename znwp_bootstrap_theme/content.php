@@ -31,6 +31,7 @@ global $znwp_theme;
                     '%title <span class="glyphicon glyphicon-chevron-right"></span>'
                 );
                 ?>
+                <div class="visible-xs clearfix"></div>
               <?php else: ?>
                 <?php the_excerpt(); ?>
               <?php endif; ?>
