@@ -6,7 +6,6 @@
  * Filter hooks: znwp_bootstrap_theme_version
  * Action hooks: znwp_bootstrap_theme_post_init
  *
- * @todo    Disabling layout will remove styles/scripts for Theme Customizer Widgets area and hide Sidebar section?
  * @see     https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
  * @package ZnWP Bootstrap Theme
  */
@@ -22,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20140825T2100';
+    protected static $version = '1.0.0+20140913T1600';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -319,7 +318,8 @@ class ZnWP_Bootstrap_Theme
         // Add form controls for Layout section
         $priority = 1; // if not set, controls may sometimes jump around
         $wp_customize->add_control('disable_layout', array(
-            'label' => 'Disable layout (including styles/scripts) to allow embedding of blog in another site',
+            'label' => 'Disable layout to allow embedding of blog in another site '
+                       . '(styles/scripts need to be included manually though shown in preview here)',
             'section' => 'layout',
             'type' => 'checkbox',
             'priority' => $priority++,
@@ -395,12 +395,15 @@ class ZnWP_Bootstrap_Theme
      */
     public function customize_css()
     {
+        // CSS for checkbox is to reduce line spacing for long description in disable_layout control
         echo '
             <style>
               .accordion-section #customize-control-login_form_logo.customize-control-image .preview-thumbnail img {
                 max-height: 150px;
                 max-width: 150px;
               }
+              .customize-control-checkbox { margin-bottom: 10px; }
+              .customize-control-checkbox label { line-height: 0; }
             </style>
         ';
     }
