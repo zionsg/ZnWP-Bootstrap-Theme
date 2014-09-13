@@ -6,6 +6,7 @@
  * Filter hooks: znwp_bootstrap_theme_version
  * Action hooks: znwp_bootstrap_theme_post_init
  *
+ * @todo    Disabling layout will remove styles/scripts for Theme Customizer Widgets area and hide Sidebar section?
  * @see     https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
  * @package ZnWP Bootstrap Theme
  */
@@ -88,7 +89,7 @@ class ZnWP_Bootstrap_Theme
         add_action('customize_controls_print_styles', array($this, 'customize_css'));
 
         // Register sidebar and widgets
-        $this->register_sidebar_widgets();
+        add_action('widgets_init', array($this, 'register_sidebar_widgets'));
 
         // Add CSS class to navigation menu item
         add_filter('nav_menu_css_class', array($this, 'add_nav_class'), 10, 2);
@@ -289,6 +290,17 @@ class ZnWP_Bootstrap_Theme
                 'default' => $default,
                 'sanitize_callback' => ('header_height' == $setting ? array($this, 'sanitizer_int') : ''),
             ));
+        }
+
+        // Set default for primary menu else will affect styling of navigation bar
+        foreach (wp_get_nav_menus() as $nav_menu) {
+            // Use first user-created menu that contains the word "Primary"
+            if (stripos($nav_menu->name, 'primary') !== false) {
+                $wp_customize->add_setting('nav_menu_locations[primary]', array(
+                    'default' => $nav_menu->term_id,
+                ));
+                break;
+            }
         }
 
         // Add sections
