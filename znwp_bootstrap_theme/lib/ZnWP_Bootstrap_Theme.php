@@ -291,15 +291,23 @@ class ZnWP_Bootstrap_Theme
             ));
         }
 
-        // Set default for primary menu else will affect styling of navigation bar
-        foreach (wp_get_nav_menus() as $nav_menu) {
-            // Use first user-created menu that contains the word "Primary"
+        // Set default for primary menu
+        // Use first menu that contains "Primary" or first menu if the former does not exist
+        $nav_menu_id = null;
+        $nav_menus = wp_get_nav_menus();
+        foreach ($nav_menus as $nav_menu) {
+            if (null === $nav_menu_id) {
+                $nav_menu_id = $nav_menu->term_id; // record id of first menu
+            }
             if (stripos($nav_menu->name, 'primary') !== false) {
-                $wp_customize->add_setting('nav_menu_locations[primary]', array(
-                    'default' => $nav_menu->term_id,
-                ));
+                $nav_menu_id = $nav_menu->term_id;
                 break;
             }
+        }
+        if ($nav_menu_id !== null) {
+            $wp_customize->add_setting('nav_menu_locations[primary]', array(
+                'default' => $nav_menu->term_id,
+            ));
         }
 
         // Add sections
