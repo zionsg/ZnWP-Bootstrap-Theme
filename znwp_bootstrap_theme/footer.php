@@ -13,6 +13,13 @@ global $znwp_theme;
           <?php get_template_part('sidebar', 'right'); ?>
         </div> <!-- end row -->
 
+        <?php
+        // Load wp_footer if in Theme Customizer preview and layout is disabled
+        if (!empty($GLOBALS['wp_customize']) && $znwp_theme->theme_mod('disable_layout')) {
+            wp_footer();
+        }
+        ?>
+
 <?php if (!$znwp_theme->theme_mod('disable_layout')): ?>
       </div> <!-- end container -->
 
