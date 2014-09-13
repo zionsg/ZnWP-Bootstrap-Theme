@@ -47,6 +47,13 @@ global $znwp_theme;
       <div class="container">
 <?php endif; ?>
 
+        <?php
+        // Load wp_head if in Theme Customizer preview and layout is disabled
+        if (!empty($GLOBALS['wp_customize']) && $znwp_theme->theme_mod('disable_layout')) {
+            wp_head();
+        }
+        ?>
+
         <div id="content" class="row">
           <?php get_template_part('sidebar', 'left'); ?>
 
