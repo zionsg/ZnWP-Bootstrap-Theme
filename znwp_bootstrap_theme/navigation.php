@@ -18,6 +18,8 @@ global $znwp_theme;
                     echo '<span class="glyphicon glyphicon-home"></span>';
                 } elseif ('site-title' == $brand) {
                     bloginfo('name');
+                } elseif ('none' == $brand) {
+                    // Show nothing
                 }
                 ?>
               </a>

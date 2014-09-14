@@ -24,18 +24,7 @@ global $znwp_theme;
 
       <?php if ($znwp_theme->theme_mod('display_header')): ?>
         <header class="<?php echo $znwp_theme->get_header_class(); ?>">
-          <div class="container">
-            <div class="row">
-              <div class="<?php echo $znwp_theme->get_full_width_class(); ?>">
-                <?php if ($znwp_theme->display_header_text()): ?>
-                  <div id="header-text">
-                    <h1 class="site-title"><?php bloginfo('name'); ?></h1>
-                    <div class="tagline"><?php bloginfo('description'); ?></div>
-                  </div>
-                <?php endif; ?>
-              </div>
-            </div>
-          </div>
+          <?php get_template_part('header', 'top'); ?>
         </header>
       <?php endif; ?>
 
@@ -44,7 +33,7 @@ global $znwp_theme;
       get_template_part('slideshow');
       ?>
 
-      <div class="container">
+      <div class="<?php echo ($znwp_theme->theme_mod('full_width_content') ? '' : 'container'); ?>">
 <?php endif; ?>
 
         <?php

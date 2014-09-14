@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20140913T1600';
+    protected static $version = '1.0.0+20140914T2300';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -56,6 +56,7 @@ class ZnWP_Bootstrap_Theme
         'header_height'  => 150, // in pixels
         'grid_class_prefix' => 'col-sm-',
         'navbar_brand' => 'home-icon',
+        'full_width_content' => false,
         'sidebar_columns'  => 3,
         'sidebar_location' => 'right',
         'footer_text' => 'Copyright 2014, <a href="http://intzone.com/">intZone.com</a>',
@@ -352,12 +353,18 @@ class ZnWP_Bootstrap_Theme
             'choices' => array_combine($choices, $choices), // keys same as values
             'priority' => $priority++,
         ));
-        $choices = array('home-icon' => 'Home Icon', 'site-title' => 'Site Title');
+        $choices = array('home-icon' => 'Home Icon', 'site-title' => 'Site Title', 'none' => 'None');
         $wp_customize->add_control('navbar_brand', array(
             'label' => 'Navbar Branding',
             'section' => 'layout',
             'type' => 'select',
             'choices' => $choices,
+            'priority' => $priority++,
+        ));
+        $wp_customize->add_control('full_width_content', array(
+            'label' => 'Full width content',
+            'section' => 'layout',
+            'type' => 'checkbox',
             'priority' => $priority++,
         ));
         $choices = array(2, 3, 4, 6);

@@ -24,19 +24,10 @@ global $znwp_theme;
       </div> <!-- end container -->
 
       <footer>
-        <br />
-        <hr />
-        <div class="container">
-          <div class="row">
-            <div id="footer-text" class="<?php echo $znwp_theme->get_full_width_class(); ?>">
-              <?php echo $znwp_theme->theme_mod('footer_text'); ?>
-            </div>
-          </div>
-        </div>
+        <?php get_template_part('footer', 'bottom'); ?>
       </footer>
 
       <?php wp_footer(); ?>
-      <p>&nbsp;</p>
     </body>
   </html>
 <?php endif; ?>
