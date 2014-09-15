@@ -77,3 +77,8 @@ main img { /* ensure images in blog are responsive without need to add classes *
 .link-block.post-next a {
   display: block;
 }
+
+/* Generic classes */
+@media (max-width: 767px) { /* Phone mode */
+  .phone-center { text-align: center; }
+}
