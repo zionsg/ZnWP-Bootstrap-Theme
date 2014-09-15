@@ -247,7 +247,7 @@ class ZnWP_Bootstrap_Theme
         }
 
         $height = $this->theme_mod('header_height');
-        $style = "height: {$height}px;";
+        $style = "min-height: {$height}px;"; // cannot use height as header may grow taller in phone mode
         if ($background) {
             $image = " background-image: url('{$background}');";
             $style .= $image . " background-size: 100% {$height}px;";
