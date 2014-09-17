@@ -21,17 +21,18 @@ global $znwp_theme;
               <?php if (is_single()): ?>
                 <?php the_content(); ?>
                 <br />
-                <?php
-                previous_post_link(
-                    '<div class="link-block post-prev">%link</div>',
-                    '<span class="glyphicon glyphicon-chevron-left"></span> %title'
-                );
-                next_post_link(
-                    '<div class="link-block post-next">%link</div>',
-                    '%title <span class="glyphicon glyphicon-chevron-right"></span>'
-                );
-                ?>
-                <div class="clearfix"></div>
+                <div class="post-links">
+                  <?php
+                  previous_post_link(
+                      '<div class="link-block post-prev">%link</div>',
+                      '<span class="glyphicon glyphicon-chevron-left"></span> %title'
+                  );
+                  next_post_link(
+                      '<div class="link-block post-next">%link</div>',
+                      '%title <span class="glyphicon glyphicon-chevron-right"></span>'
+                  );
+                  ?>
+                </div>
               <?php else: ?>
                 <?php the_excerpt(); ?>
               <?php endif; ?>
