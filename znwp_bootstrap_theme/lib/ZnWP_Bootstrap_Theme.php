@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20140914T2300';
+    protected static $version = '1.0.0+20140917T2230';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -573,7 +573,7 @@ class ZnWP_Bootstrap_Theme
         return sprintf(
             '<div class="link-block read-more">
                <a href="%s">%s <span class="glyphicon glyphicon-chevron-right"></span></a>
-             </div><div class="clearfix"></div>',
+             </div>',
             get_permalink(get_the_ID()),
             'Continue reading'
         );
