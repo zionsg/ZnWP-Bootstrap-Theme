@@ -60,6 +60,13 @@ main img { /* ensure images in blog are responsive without need to add classes *
 }
 
 /* Enclose link in a block with borders */
+.link-block {
+  /* Margins match ".link-block a" padding to ensure block does not overlap adjacent link blocks or surrounding text */
+  clear: both;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .link-block a {
   border: 1px solid #eee;
   border-radius: 4px;
@@ -68,17 +75,28 @@ main img { /* ensure images in blog are responsive without need to add classes *
 }
 .link-block a:hover {
   background-color: #428bca;
+  border: 1px solid #428bca;
   color: white;
+  text-decoration: none;
 }
 .link-block.read-more { text-align: right; }
-.link-block.post-prev { float: left; }
-.link-block.post-next { float: right; }
-.link-block.post-prev a,
-.link-block.post-next a {
-  display: block;
+.link-block.post-prev {
+  clear: left;
+  float: left;
 }
+.link-block.post-next {
+  clear: right;
+  float: right;
+}
+.post-links:before,
+.post-links:after {
+  display: table;
+  content: " ";
+}
+.post-links:after { clear: both; }
 
 /* Generic classes */
+.full-width { width: 100%; }
 @media (max-width: 767px) { /* Phone mode */
   .phone-center { text-align: center; }
 }
