@@ -70,6 +70,7 @@ main img { /* ensure images in blog are responsive without need to add classes *
 .link-block a {
   border: 1px solid #eee;
   border-radius: 4px;
+  display: block;
   padding: 10px;
   text-decoration: none;
 }
