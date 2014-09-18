@@ -3,8 +3,8 @@
  * Theme functions
  *
  * Order of methods generally follows that of init().
- * Filter hooks: znwp_bootstrap_theme_version
- * Action hooks: znwp_bootstrap_theme_post_init
+ * Filter hooks: znwp_bootstrap_theme_version (current version is passed in as argument)
+ * Action hooks: znwp_bootstrap_theme_post_init (current instance is passed in as argument)
  *
  * @see     https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
  * @package ZnWP Bootstrap Theme
@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20140917T2230';
+    protected static $version = '1.0.0+20140918T2230';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -98,7 +98,7 @@ class ZnWP_Bootstrap_Theme
         add_filter('excerpt_more', array($this, 'modify_excerpt_more'));
 
         // Action hook for child themes to do additional initialization
-        do_action('znwp_bootstrap_theme_post_init');
+        do_action('znwp_bootstrap_theme_post_init', $this);
     }
 
     /**
