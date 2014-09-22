@@ -70,7 +70,6 @@ main img { /* ensure images in blog are responsive without need to add classes *
 .link-block a {
   border: 1px solid #eee;
   border-radius: 4px;
-  display: block;
   padding: 10px;
   text-decoration: none;
 }
@@ -88,6 +87,11 @@ main img { /* ensure images in blog are responsive without need to add classes *
 .link-block.post-next {
   clear: right;
   float: right;
+}
+.link-block.post-prev a,
+.link-block.post-next a {
+  /* Cannot put for ".link-block a" else ".link-block.read-more a" block will span full width */
+  display: block;
 }
 .post-links:before,
 .post-links:after {
