@@ -96,7 +96,7 @@ class ZnWP_Bootstrap_Theme
 
         // Modify post formatting
         add_filter('excerpt_more', array($this, 'modify_excerpt_more'));
-        remove_filter('the_content', 'wpautop'); // stop WordPress from wrapping images in <p>
+        // remove_filter('the_content', 'wpautop'); // stop WordPress from wrapping images in <p>
 
         // Action hook for child themes to do additional initialization
         do_action('znwp_bootstrap_theme_post_init', $this);
