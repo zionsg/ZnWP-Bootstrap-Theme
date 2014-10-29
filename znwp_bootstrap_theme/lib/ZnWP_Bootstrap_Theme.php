@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20140924T1430';
+    protected static $version = '1.0.0+20141029T1715';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -56,6 +56,7 @@ class ZnWP_Bootstrap_Theme
         'header_height'  => 150, // in pixels
         'grid_class_prefix' => 'col-sm-',
         'navbar_brand' => 'home-icon',
+        'full_width_navbar' => true,
         'full_width_content' => false,
         'sidebar_columns'  => 3,
         'sidebar_location' => 'right',
@@ -360,6 +361,12 @@ class ZnWP_Bootstrap_Theme
             'section' => 'layout',
             'type' => 'select',
             'choices' => $choices,
+            'priority' => $priority++,
+        ));
+        $wp_customize->add_control('full_width_navbar', array(
+            'label' => 'Full width navbar',
+            'section' => 'layout',
+            'type' => 'checkbox',
             'priority' => $priority++,
         ));
         $wp_customize->add_control('full_width_content', array(
