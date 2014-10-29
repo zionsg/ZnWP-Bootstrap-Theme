@@ -29,8 +29,10 @@ global $znwp_theme;
       <?php endif; ?>
 
       <?php
+      echo (!$znwp_theme->theme_mod('full_width_navbar') ? '<div class="container">' . "\n" : '');
       get_template_part('navigation');
       get_template_part('slideshow');
+      echo (!$znwp_theme->theme_mod('full_width_navbar') ? "\n" . '</div>' : '');
       ?>
 
       <div class="<?php echo ($znwp_theme->theme_mod('full_width_content') ? '' : 'container'); ?>">
