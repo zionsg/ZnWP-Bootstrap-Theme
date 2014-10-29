@@ -26,7 +26,7 @@ body.login div#login h1 a {
 #header-text .tagline { font-style: italic; }
 
 /* Navigation */
-.navbar-default { border-radius: 0; }
+.navbar-default { border-radius: 0; /* remove rounded corners for navbar which is full width by default */ }
 .navbar .nav>li>a:hover,
 .navbar .nav>li.active>a:hover {
   background-color: #428bca;
