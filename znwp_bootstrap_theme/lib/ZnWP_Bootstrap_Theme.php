@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20141029T1715';
+    protected static $version = '1.0.0+20141031T1400';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -211,10 +211,12 @@ class ZnWP_Bootstrap_Theme
      */
     public function theme_support()
     {
+        add_theme_support('post-formats', array(
+            'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'
+        ));
         add_theme_support('post-thumbnails');
-        add_theme_support('custom-background', array('default-color' => '#fff'));
+        add_theme_support('custom-background', array('default-color' => ''));
         add_theme_support('custom-header', array(
-            'default-text-color' => '#333',
             'flex-width'         => true,
             'width'              => '1920', // this must be set else 'Select and Crop' will not work when uploading
             'flex-height'        => true,
