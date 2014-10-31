@@ -23,6 +23,7 @@ body.login div#login h1 a {
 #footer-text {
   text-align: center;
 }
+#header-text .site-title { font-size: 200%; }
 #header-text .tagline { font-style: italic; }
 
 /* Navigation */
