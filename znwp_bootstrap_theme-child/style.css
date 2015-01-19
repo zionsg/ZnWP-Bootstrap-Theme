@@ -1,0 +1,17 @@
+/*
+Template: znwp_bootstrap_theme
+Theme Name: (Child) ZnWP Bootstrap Theme
+Theme URI: https://github.com/zionsg/ZnWP-Bootstrap-Theme
+Author: Zion Ng
+Author URI: https://github.com/zionsg/ZnWP-Bootstrap-Theme
+Description: A no-frills theme using Twitter Bootstrap 3 for responsive layout and the Theme Customizer for settings.
+Version: 1.0.0
+License: BSD 2-clause
+License URI: http://choosealicense.com/licenses/bsd-2-clause/
+Tags: two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-header, custom-menu
+Text Domain: znwp_bootstrap_theme
+*/
+
+@import url("../znwp_bootstrap_theme/style.css");
+
+/* Customization for child theme */
