@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20141031T1400';
+    protected static $version = '1.0.0+20150119T0900';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -189,18 +189,35 @@ class ZnWP_Bootstrap_Theme
      */
     public function enqueue_styles_scripts()
     {
-        $uri = get_template_directory_uri() . '/inc/bootstrap';
+        $uri = get_template_directory_uri();
+        $bootstrapUri = $uri . '/inc/bootstrap';
         $version = $this->get_version();
 
-        wp_enqueue_style('znwp-bootstrap-theme-bootstrap-css', "{$uri}/css/bootstrap.min.css", array(), $version);
+        // Styles
+        wp_enqueue_style(
+            'znwp-bootstrap-theme-bootstrap-css',
+            "{$bootstrapUri}/css/bootstrap.min.css",
+            array(),
+            $version
+        );
         wp_enqueue_style('znwp-bootstrap-theme-style', get_stylesheet_uri(), array(), $version);
+
+        // Scripts
         wp_enqueue_script(
             'znwp-bootstrap-theme-bootstrap-js',
-            "{$uri}/js/bootstrap.min.js",
+            "{$bootstrapUri}/js/bootstrap.min.js",
             array('jquery'),
             $version,
             true // load script in footer
         );
+        wp_enqueue_script(
+            'znwp-bootstrap-theme-js',
+            "{$uri}/theme.js",
+            array('znwp-bootstrap-theme-bootstrap-js'),
+            $version,
+            true
+        );
+
     }
 
     /**
