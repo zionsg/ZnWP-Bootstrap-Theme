@@ -27,9 +27,10 @@ add_action('znwp_bootstrap_theme_post_init', function ($parent_theme) {
  *
  * @param  array $defaults Default values for custom fields - also used as type hint for custom field
  * @param  array $params   Additional WP_Query params - http://codex.wordpress.org/Class_Reference/WP_Query#Parameters
+ * @param  array $posts    Optional array of WP_Post objects. If set, this will be used instead of querying the database
  * @return WP_Post[]
  */
-function get_posts_with_custom_fields(array $defaults = array(), array $params = array())
+function get_posts_with_custom_fields(array $defaults = array(), array $params = array(), array $posts = null)
 {
     $result = array();
     $params = array_merge(
@@ -40,7 +41,7 @@ function get_posts_with_custom_fields(array $defaults = array(), array $params =
         $params
     );
 
-    $posts = get_posts($params);
+    $posts = (null === $posts ? get_posts($params) : $posts);
     foreach ($posts as $post) {
         $post->custom_fields = array();
 
