@@ -48,9 +48,10 @@ function get_posts_with_custom_fields(array $defaults = array(), array $params =
         // Ensure all fields listed in $defaults are set
         $post_custom = array_merge($defaults, get_post_custom($post->ID));
         foreach ($post_custom as $key => $value) {
-            // get_post_custom() returns array for each meta key - implode value if default is not array but value is
-            if (isset($defaults[$key]) && !is_array($defaults[$key]) && is_array($value)) {
-                $value = implode('', $value);
+            // get_post_custom() returns array for each meta key - get value[0] if default is not array but value is
+            $default = isset($defaults[$key]) ? $defaults[$key] : null;
+            if (!is_array($default) && is_array($value)) {
+                $value = ($value ? $value[0] : '');
             }
             $post->custom_fields[$key] = $value;
         }
