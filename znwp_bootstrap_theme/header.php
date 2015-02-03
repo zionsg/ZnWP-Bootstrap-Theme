@@ -6,6 +6,8 @@
  */
 
 global $znwp_theme;
+
+$full_width_content = $znwp_theme->theme_mod('full_width_content');
 ?>
 <?php if (!$znwp_theme->theme_mod('disable_layout')): ?>
   <!DOCTYPE html>
@@ -35,7 +37,7 @@ global $znwp_theme;
       echo (!$znwp_theme->theme_mod('full_width_navbar') ? "\n" . '</div>' : '');
       ?>
 
-      <div class="<?php echo ($znwp_theme->theme_mod('full_width_content') ? '' : 'container'); ?>">
+      <div class="container<?php echo ($full_width_content ? '-fluid' : ''); ?>">
 <?php endif; ?>
 
         <?php
@@ -48,4 +50,5 @@ global $znwp_theme;
         <div id="content" class="row">
           <?php get_template_part('sidebar', 'left'); ?>
 
-          <main id="main" class="<?php echo $znwp_theme->get_main_class(); ?>" role="main">
+          <main id="main" class="<?php echo ($full_width_content ? '' : $znwp_theme->get_main_class()); ?>" role="main">
+            <!-- no col-*-12 class for full width content else will have extra padding at the sides -->
