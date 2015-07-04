@@ -21,7 +21,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20150204T0100';
+    protected static $version = '1.0.0+20150704T1150';
 
     /**
      * Class files for custom Theme Customizer controls
