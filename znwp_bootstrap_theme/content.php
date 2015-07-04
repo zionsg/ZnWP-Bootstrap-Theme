@@ -19,20 +19,10 @@ global $znwp_theme;
               <time><span class="glyphicon glyphicon-time"></span> <?php the_date(); ?></time>
               <hr class="title-divider" />
               <?php if (is_single()): ?>
-                <?php the_content(); ?>
-                <br />
-                <div class="post-links">
-                  <?php
-                  previous_post_link(
-                      '<div class="link-block post-prev">%link</div>',
-                      '<span class="glyphicon glyphicon-chevron-left"></span> %title'
-                  );
-                  next_post_link(
-                      '<div class="link-block post-next">%link</div>',
-                      '%title <span class="glyphicon glyphicon-chevron-right"></span>'
-                  );
-                  ?>
-                </div>
+                <?php
+                the_content();
+                get_template_part('postlinks');
+                ?>
               <?php else: ?>
                 <?php the_excerpt(); ?>
               <?php endif; ?>
