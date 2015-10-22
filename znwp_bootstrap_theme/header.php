@@ -5,8 +5,7 @@
  * @package ZnWP Bootstrap Theme
  */
 
-global $znwp_theme;
-
+$znwp_theme = ZnWP_Bootstrap_Theme::getInstance();
 $full_width_content = $znwp_theme->theme_mod('full_width_content');
 ?>
 <?php if (!$znwp_theme->theme_mod('disable_layout')): ?>

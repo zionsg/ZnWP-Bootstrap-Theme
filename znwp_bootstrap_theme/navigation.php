@@ -5,7 +5,7 @@
  * @package ZnWP Bootstrap Theme
  */
 
-global $znwp_theme;
+$znwp_theme = ZnWP_Bootstrap_Theme::getInstance();
 ?>
 
         <div class="navbar navbar-default">

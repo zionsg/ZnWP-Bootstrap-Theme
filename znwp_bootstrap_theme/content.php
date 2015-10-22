@@ -4,8 +4,6 @@
  *
  * @package ZnWP Bootstrap Theme
  */
-
-global $znwp_theme;
 ?>
 
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

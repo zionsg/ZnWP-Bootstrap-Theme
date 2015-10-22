@@ -5,7 +5,7 @@
  * @package ZnWP Bootstrap Theme
  */
 
-global $znwp_theme;
+$znwp_theme = ZnWP_Bootstrap_Theme::getInstance();
 ?>
 
         <aside id="sidebar" class="<?php echo $znwp_theme->get_sidebar_class(); ?>" role="sidebar">

@@ -13,6 +13,13 @@
 class ZnWP_Bootstrap_Theme
 {
     /**
+     * Shared instance
+     *
+     * @var self
+     */
+    protected static $instance = null;
+
+    /**
      * Theme version
      *
      * Not a constant so as to allow child theme to override using filter hook.
@@ -21,7 +28,7 @@ class ZnWP_Bootstrap_Theme
      * @see http://semver.org/
      * @var string
      */
-    protected static $version = '1.0.0+20150717T2255';
+    protected static $version = '1.1.0+20151022T2345';
 
     /**
      * Class files for custom Theme Customizer controls
@@ -63,6 +70,20 @@ class ZnWP_Bootstrap_Theme
         'footer_text' => 'Copyright 2014, <a href="http://intzone.com/">intZone.com</a>',
         'login_form_logo' => '',
     );
+
+    /**
+     * Get shared instance
+     *
+     * @return self
+     */
+    public static function getInstance()
+    {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
 
     /**
      * Initialize theme
