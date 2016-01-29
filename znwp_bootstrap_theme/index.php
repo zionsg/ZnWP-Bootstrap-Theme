@@ -37,10 +37,17 @@ foreach ($other_templates as $other_template => $show_posts_flag) {
 if ($show_posts) {
     if (!have_posts()) {
         get_template_part('content', 'none');
-    }
-    while (have_posts()) {
-        the_post();
-        get_template_part('content', get_post_format()); // include the post format-specific template for the content
+    } else {
+        while (have_posts()) {
+            the_post();
+            get_template_part('content', get_post_format()); // include the post format-specific template for the content
+        }
+
+        printf(
+            '<br><div class="row"><div class="col-xs-6">%s</div><div class="col-xs-6 text-right">%s</div></div>',
+            get_next_posts_link('« Older Posts'),
+            get_previous_posts_link('Newer Posts »')
+        );
     }
 }
 ?>
