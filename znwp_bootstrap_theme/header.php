@@ -7,6 +7,7 @@
 
 $znwp_theme = ZnWP_Bootstrap_Theme::getInstance();
 $full_width_content = $znwp_theme->theme_mod('full_width_content');
+$page_class = (isset($post) && is_page())? "page-{$post->post_name}" : '';
 ?>
 <?php if (!$znwp_theme->theme_mod('disable_layout')): ?>
   <!DOCTYPE html>
@@ -20,7 +21,7 @@ $full_width_content = $znwp_theme->theme_mod('full_width_content');
       <?php wp_head(); // style.css loaded via here ?>
     </head>
 
-    <body <?php body_class(); ?>>
+    <body <?php body_class($page_class); ?>>
       <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
       <?php if ($znwp_theme->theme_mod('display_header')): ?>
